@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Leave from '../views/Leave.vue'
 import Menu from '../views/Menu.vue'
+import Annual from '../views/Annual.vue'
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/Annual',
+    name: 'Annual',
+    component: Annual
   },
   {
     path: '/Leave',
