@@ -1,69 +1,291 @@
 <template>
-  <el-form ref="formRef" :model="form" label-width="120px">
-    <el-form-item label="申请人">
-      <el-input v-model="form.name"></el-input>
-    </el-form-item>
-    <el-form-item label="Activity zone">
-      <el-select v-model="form.region" placeholder="please select your zone">
-        <el-option label="Zone one" value="shanghai"></el-option>
-        <el-option label="Zone two" value="beijing"></el-option>
-      </el-select>
-    </el-form-item>
-    <el-form-item label="Activity time">
-      <el-col :span="11">
-        <el-date-picker
-          v-model="form.date1"
+  <table
+    border="1px"
+    ref="formRef"
+    :model="form"
+    bordercolor="#E4E7ED"
+    width="900px"
+    cellpadding="5"
+    cellspacing="0"
+  >
+    <tr>
+      <td colspan="4"><h2 style="text-align: center">请假申请表</h2></td>
+    </tr>
+    <tr>
+      <td align="left" colspan="4" style="background-color: rgb(217, 236, 255)">
+        基础信息
+      </td>
+    </tr>
+    <tr>
+      <td align="left" width="225" style="background-color: #f2f6fc">申请人</td>
+      <td width="225">
+        <input
+          type="text"
+          v-model="form.proposer"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        />
+      </td>
+      <td align="left" width="225" style="background-color: #f2f6fc">
+        申请部门
+      </td>
+      <td width="225">
+        <input
+          type="text"
+          v-model="form.applyDemo"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        />
+      </td>
+    </tr>
+    <tr>
+      <td align="left" width="225" style="background-color: #f2f6fc">
+        申请时间
+      </td>
+      <td width="225">
+        <input
           type="date"
-          placeholder="Pick a date"
-          style="width: 100%"
-        ></el-date-picker>
-      </el-col>
-      <el-col :span="2" class="text-center">
-        <span class="text-gray-500">-</span>
-      </el-col>
-      <el-col :span="11">
-        <el-time-picker
-          v-model="form.date2"
-          placeholder="Pick a time"
-          style="width: 100%"
-        ></el-time-picker>
-      </el-col>
-    </el-form-item>
-    <el-form-item label="Instant delivery">
-      <el-switch v-model="form.delivery"></el-switch>
-    </el-form-item>
-    <el-form-item label="Activity type">
-      <el-checkbox-group v-model="form.type">
-        <el-checkbox label="Online activities" name="type"></el-checkbox>
-        <el-checkbox label="Promotion activities" name="type"></el-checkbox>
-        <el-checkbox label="Offline activities" name="type"></el-checkbox>
-        <el-checkbox label="Simple brand exposure" name="type"></el-checkbox>
-      </el-checkbox-group>
-    </el-form-item>
-    <el-form-item label="Resources">
-      <el-radio-group v-model="form.resource">
-        <el-radio label="Sponsor"></el-radio>
-        <el-radio label="Venue"></el-radio>
-      </el-radio-group>
-    </el-form-item>
-    <el-form-item label="Activity form">
-      <el-input v-model="form.desc" type="textarea"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="onSubmit">Create</el-button>
-      <el-button>Cancel</el-button>
-    </el-form-item>
-  </el-form>
+          v-model="form.applyTime"
+          placeholder="选择日期"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        />
+      </td>
+      <td align="left" width="225" style="background-color: #f2f6fc"></td>
+      <td width="225"></td>
+    </tr>
+
+    <tr>
+      <td align="left" colspan="4" style="background-color: rgb(217, 236, 255)">
+        请假信息
+      </td>
+    </tr>
+    <tr>
+      <td align="left" width="225" style="background-color: #f2f6fc">
+        请假类型
+      </td>
+      <td width="225">
+        <select v-model="form.leaveType" placeholder="请输入">
+          <option label="事假" value="shanghai">事假</option>
+          <option label="丧假" value="shanghai">丧假</option>
+          <option label="病假" value="shanghai">病假</option>
+          <option label="年休假" value="shanghai">年休假</option>
+          <option label="调休假" value="shanghai">调休假</option>
+          <option label="婚假" value="shanghai">婚假</option>
+          <option label="产假" value="shanghai">产假</option>
+          <option label="陪产假" value="shanghai">陪产假</option>
+          <option label="哺乳假" value="shanghai">哺乳假</option>
+        </select>
+      </td>
+      <td align="left" width="225" style="background-color: #f2f6fc">
+        请假开始时间
+      </td>
+      <td width="225">
+        <input
+          type="date"
+          v-model="form.startDate"
+          placeholder="选择日期"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        />
+      </td>
+    </tr>
+    <tr>
+      <td align="left" width="225" style="background-color: #f2f6fc">
+        请假结束时间
+      </td>
+      <td width="225">
+        <input
+          type="date"
+          v-model="form.endDate"
+          placeholder="选择日期"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        />
+      </td>
+      <td align="left" width="225" style="background-color: #f2f6fc">
+        请假天数
+      </td>
+      <td width="225">
+        <input
+          type="text"
+          v-model="form.day"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        />
+      </td>
+    </tr>
+    <tr>
+      <td align="left" width="225" style="background-color: #f2f6fc">
+        请假原因
+      </td>
+      <td width="225" colspan="3">
+        <textarea
+          cols="100"
+          v-model="form.leaveCause"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        ></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" width="225" style="background-color: #f2f6fc">附件</td>
+      <td width="225" colspan="3">
+        <textarea
+          cols="100"
+          v-model="form.leaveCause"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        ></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" colspan="4" style="background-color: rgb(217, 236, 255)">
+        备注
+      </td>
+    </tr>
+    <tr>
+      <td width="225" colspan="4">
+        <textarea
+          cols="120"
+          v-model="form.leaveRemark"
+          style="
+            outline-color: invert;
+            outline-style: none;
+            outline-width: 0px;
+            border: none;
+            border-style: none;
+            text-shadow: none;
+            -webkit-appearance: none;
+            outline-color: transparent;
+            box-shadow: none;
+          "
+        ></textarea>
+      </td>
+    </tr>
+  </table>
+<div  style="margin: 0 auto;width: 900px;">
+  <button type="info" style="float: left;">提交</button>
+  <button type="info" style="float: left">存为草稿</button>
+  <button type="info" style="float: left">存为范本</button>
+  <button type="info" style="float: left">启用阅示</button>
+<br/>
+<br/>
+  <button type="info" style="float: left">序号</button>
+  <button type="info" style="float: left">处理步骤</button>
+  <button type="info" style="float: left">签名</button>
+  <button type="info" style="float: left">操作</button>
+  <button type="info" style="float: left">日期</button>
+  <button type="info" style="float: left">备注</button>
+</div>
 </template>
 <script>
 export default {
   data() {
     return {
-        from:{
-
-
-        }
+      form: {
+        proposer: "",
+        applyDemo: "",
+        applyTime: "",
+        leaveType: "",
+        startDate: "",
+        endDate: "",
+        day: "",
+        leaveCause: "",
+        leaveImg: "",
+        leaveRemark: "",
+      },
     };
+  },
+  mounted() {
+    this.Add();
+  },
+  methods: {
+    Add() {
+      this.$axios({
+        method: "",
+        url: "",
+        data: this.form,
+      }).then((res) => {
+        if (res.data) {
+          ("提交失败");
+        } else {
+          alert("提交成功");
+        }
+      });
+    },
   },
 };
 </script>
