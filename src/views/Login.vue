@@ -1,72 +1,56 @@
 <template>
-  <div class="im">
-    <img :src="imgurl" :width="1900" :height="850" alt="" />
+  <div class="login">
+      <div class="content">
+          <p>账号：<input type="text" v-model="user"></p>
+          <p>账号：<input type="text" v-model="pwd"></p>
+          <p>
+              <el-button type="primary">登录</el-button>
+              <el-button type="primary">注册</el-button>
+          </p>
+      </div>
+      
   </div>
-  <div class="front">
-    <el-card class="card">
-      <el-form ref="elForm" :model="formData" :rules="rules">
-        <el-form-item label="用户名" prop="username">
-          <el-input
-            v-model="formData.UserName"
-            placeholder="请输入用户名"
-            clearable
-          ></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input
-            v-model="formData.UserPass"
-            placeholder="请输入密码"
-            clearable
-            show-password
-          ></el-input>
-        </el-form-item>
-        <el-form-item>
-          
-          <el-button class="but" type="primary" @click="login()"
-            >登录</el-button
-          >
-        </el-form-item>
-      </el-form>
-    </el-card>
-  </div>
-
 </template>
+
 <script>
 export default {
-  data() {
-      return{
-        imgurl: require("../assets/cctv.jpg"),
-          formData:{
-            UserName:"",
-            UserPass:""
-          }
-      }
-  },
-  mounted()
-  {
-
-  },
-  methods:{
-
-  }
-};
+    data(){
+        return {
+            user:"",
+            pwd:""
+        }
+    },
+    methods:{
+    }
+}
 </script>
-<style scoped>
-.im{
-   z-index: -1;
-  position: absolute;
-  margin-top: 0px;
-}
-.front {
-  z-index: 1;
-  position: absolute;
-}
-.card {
-  width: 350px;
-  height: 200px;
-  margin-left: 1300px;
-  margin-top: 300px;
-  background-color: darkturquoise;
-  border: 0px solid darkturquoise;
-}
+<style>
+    .login{
+        width: 100%;
+        height: 850px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.yanlutong.com%2Fuploadimg%2Fimage%2F20210324%2F20210324143044_88216.gif&refer=http%3A%2F%2Fimg.yanlutong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648378334&t=079f88fa79610deff970529d5b5eb5ef");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .content{
+            width: 500px;
+            height: 300px;
+            background: rgba(152, 162, 209,.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+    input{
+                width: 300px;
+                height: 30px;
+                border-radius: 5px;
+                border: none;
+                padding-left: 10px;
+                opacity: 0.4;
+            }
 </style>

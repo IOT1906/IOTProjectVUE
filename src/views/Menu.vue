@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container>
-      <el-aside width="400px">
+      <el-aside width="300px">
         <el-col>
           <h5>组织架构管理</h5>
           <el-menu
@@ -15,7 +15,14 @@
               <template #title>
                 <span>流程模块</span>
               </template>
-              <el-menu-item index="1-1">发起流程</el-menu-item>
+              <el-sub-menu index="1-1">
+                <template #title>发起流程</template>
+                <el-menu-item index="1-4-1" @click="this.$router.push('/Leave')">请假</el-menu-item>
+                <el-menu-item index="1-4-2">请假</el-menu-item>
+                <el-menu-item index="1-4-3">请假</el-menu-item>
+                <el-menu-item index="1-4-4">请假</el-menu-item>
+                <el-menu-item index="1-4-5">请假</el-menu-item>
+              </el-sub-menu>
               <el-menu-item index="1-2">我的请求</el-menu-item>
               <el-menu-item index="1-3">我处理的流程</el-menu-item>
               <el-menu-item index="1-4">所有流程</el-menu-item>
@@ -56,8 +63,11 @@
           </el-menu>
         </el-col>
       </el-aside>
-      <el-main>Main</el-main>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
+
   </div>
 </template>
 <script>
@@ -67,3 +77,19 @@ export default {
   methods: {},
 };
 </script>
+<style>
+.el-aside {
+  color: var(--el-text-color-primary);
+  text-align: center;
+}
+
+.el-main {
+  color: var(--el-text-color-primary);
+  text-align: center;
+}
+
+.common-layout > .el-container {
+  margin-bottom: 40px;
+}
+
+</style>
