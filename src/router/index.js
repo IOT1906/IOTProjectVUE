@@ -4,10 +4,16 @@ import Login from '../views/Login.vue'
 import Leave from '../views/Leave.vue'
 import Menu from '../views/Menu.vue'
 import Annual from '../views/Annual.vue'
+import Radd from '../views/Radd.vue'
 
 const routes = [{
         path: "/",
         redirect: "/Login" // 重定向 你每次项目启动不用手动输入路由，进来的界面就是登录
+    },
+    {
+        path: '/Radd',
+        name: 'Radd',
+        component: Radd
     },
     {
         path: '/',
