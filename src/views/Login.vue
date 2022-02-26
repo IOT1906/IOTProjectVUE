@@ -2,9 +2,9 @@
   <div class="login">
       <div class="content">
           <p>账号：<input type="text" v-model="user"></p>
-          <p>账号：<input type="text" v-model="pwd"></p>
+          <p>密码：<input type="password"  v-model="pwd"></p>
           <p>
-              <el-button type="primary">登录</el-button>
+              <el-button type="primary" @click="login()">登录</el-button>
               <el-button type="primary">注册</el-button>
           </p>
       </div>
@@ -21,6 +21,23 @@ export default {
         }
     },
     methods:{
+        login()
+        {
+            this.$axios({
+                url:"http://localhost:5000/api/Login?Account="+this.user+'&Password='+this.pwd,method:"get"
+            }).then((Response)=>{
+                console.log(Response)
+                if(Response.data=="登录失败")
+                {
+                    alert('登录失败');
+                }
+                else
+                {
+                    alert('登录成功');
+                    this.$router.push({name:"Menu"});
+                }
+            })
+        }
     }
 }
 </script>
