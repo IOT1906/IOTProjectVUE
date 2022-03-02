@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Leave from '../views/apply/Leave.vue'
 import Menu from '../views/Menu.vue'
+
 import Year from '../views/apply/Year.vue'
 import Dimi from '../views/apply/Dimi.vue'
 import Entering from '../views/apply/Entering.vue'
@@ -10,6 +11,8 @@ import Man from '../views/apply/Man.vue'
 import HandOver from '../views/breve/HandOver.vue'
 import Interview from '../views/breve/Interview.vue'
 import Carapply from '../views/breve/Carapply.vue'
+
+
 
 
 const routes = [{
