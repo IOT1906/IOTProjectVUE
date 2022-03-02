@@ -18,7 +18,7 @@
               <el-sub-menu index="1-1">
                 <template #title>发起流程</template>
                 <el-menu-item index="1-4-1" @click="this.$router.push('/Leave')">请假</el-menu-item>
-                <el-menu-item index="1-4-2">请假</el-menu-item>
+                <el-menu-item index="1-4-2" @click="this.$router.push('/Departure')">离职</el-menu-item>
                 <el-menu-item index="1-4-3">请假</el-menu-item>
                 <el-menu-item index="1-4-4">请假</el-menu-item>
                 <el-menu-item index="1-4-5">请假</el-menu-item>

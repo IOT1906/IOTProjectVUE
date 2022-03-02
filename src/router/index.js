@@ -5,6 +5,8 @@ import Leave from '../views/Leave.vue'
 import Menu from '../views/Menu.vue'
 import Annual from '../views/Annual.vue'
 import Radd from '../views/Radd.vue'
+import Departure from '../views/Departure.vue'
+import Rece from '../views/Rece.vue'
 
 const routes = [{
         path: "/",
@@ -30,7 +32,6 @@ const routes = [{
         name: 'Annual',
         component: Annual
     },
-
     {
         path: '/Menu',
         name: 'Menu',
@@ -39,7 +40,18 @@ const routes = [{
             path: '/Leave', //  只有嵌套才能出现在菜单的右侧
             name: 'Leave',
             component: Leave
-        }, ]
+        }, 
+        {
+            path: '/Departure',
+            name: 'Departure',
+            component: Departure
+        },
+        {
+            path: '/Rece',
+            name: 'Rece',
+            component: Rece
+        },
+    ]
     },
 ]
 
