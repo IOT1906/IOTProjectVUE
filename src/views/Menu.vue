@@ -3,14 +3,17 @@
     <el-container>
       <el-aside width="300px">
         <el-col>
-          <h5>组织架构管理</h5>
+          <h5 >组织架构管理</h5>
           <el-menu
             default-active="2"
             class="el-menu-vertical-demo"
-            style="width:230px"
+            style="width:230px;"
             @open="handleOpen"
+            background-color="lawngreen"
             @close="handleClose"
           >
+          <img :src="aa" width="210" height="150" /><br/>
+          <span>{{this.Account}}</span>
             <el-sub-menu index="1">
               <template #title>
                 <span>流程模块</span>
@@ -25,6 +28,21 @@
                 <el-menu-item index="1-1-6" @click="this.$router.push('/HandOver')">离职交接申请</el-menu-item>
                 <el-menu-item index="1-1-7" @click="this.$router.push('/Interview')">员工离职面谈申请</el-menu-item>
                 <el-menu-item index="1-1-8" @click="this.$router.push('/Carapply')">用车申请</el-menu-item>
+                <el-menu-item index="1-1-9" @click="this.$router.push('/Rece')">接待申请表</el-menu-item>
+                <el-menu-item index="1-1-10" @click="this.$router.push('/Engrave_chapter')">刻章申请表</el-menu-item>
+                <el-menu-item index="1-1-11" @click="this.$router.push('/File_management')">文件管理</el-menu-item>
+                <el-menu-item index="1-1-12" @click="this.$router.push('/Announcement_information')">公告基本信息</el-menu-item>
+                <el-menu-item index="1-1-13" @click="this.$router.push('/Acquisitionrequest')">固定资产购置申请表</el-menu-item>
+                <el-menu-item index="1-1-14" @click="this.$router.push('/Radd')">人力资源需求申请表</el-menu-item>
+                <el-menu-item index="1-1-15" @click="this.$router.push('/Use_seal')">用章申请表</el-menu-item>
+                <el-menu-item index="1-1-16" @click="this.$router.push('/Car_insurance')">车辆保险记录表</el-menu-item>
+                <el-menu-item index="1-1-17" @click="this.$router.push('/Car_upkeep')">车辆保养记录表</el-menu-item>
+                <el-menu-item index="1-1-18" @click="this.$router.push('/Car_service')">车辆维修记录表</el-menu-item>
+                <el-menu-item index="1-1-19" @click="this.$router.push('/Car_unlawful')">车辆违章记录表</el-menu-item>
+                <el-menu-item index="1-1-20" @click="this.$router.push('/Meeting')">会议新增表</el-menu-item>
+                <el-menu-item index="1-1-21" @click="this.$router.push('/Procur')">日常用品采购</el-menu-item>
+                <el-menu-item index="1-1-22" @click="this.$router.push('/borrow')">固定资产资料借用流程</el-menu-item>
+                <el-menu-item index="1-1-23" @click="this.$router.push('/connect')">固定资产交接申请流程</el-menu-item>
               </el-sub-menu>
              <el-sub-menu index="1-2">
                 <template #title>我的请求</template>
@@ -91,9 +109,38 @@
 </template>
 <script>
 export default {
-  data() {},
+  data() {
+    return{
+      Account: window.localStorage["displayName"],
+        
+        aa:"",
+    }
+  },
   mounted() {},
   methods: {},
+  created(){
+    this.$message("欢迎"+this.Account+"登录成功");
+     if(this.Account=="侯晓晨")
+       {
+         this.aa = require("../assets/1.gif")
+       }
+       else if(this.Account=="田杰")
+       {
+         this.aa = require("../assets/123.png")
+       }
+       else if(this.Account=="李浩勇")
+       {
+         this.aa = require("../assets/li.jpg")
+       }
+       else if(this.Account=="秦祥通")
+       {
+         this.aa = require("../assets/qin.png")
+       }
+       else if(this.Account=="吕龙江")
+       {
+         this.aa = require("../assets/lv.png")
+       }
+  }
 };
 </script>
 <style>
