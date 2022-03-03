@@ -4,7 +4,7 @@
     ref="formRef"
     :model="form"
     bordercolor="#E4E7ED"
-    width="900px"
+    width="1200px"
     cellpadding="5"
     cellspacing="0"
   >
@@ -193,22 +193,8 @@
     </tr>
     <tr>
       <td align="left" width="225" style="background-color: #f2f6fc">附件</td>
-      <td width="225" colspan="3">
-        <textarea
-          cols="100"
-          v-model="form.leaveCause"
-          style="
-            outline-color: invert;
-            outline-style: none;
-            outline-width: 0px;
-            border: none;
-            border-style: none;
-            text-shadow: none;
-            -webkit-appearance: none;
-            outline-color: transparent;
-            box-shadow: none;
-          "
-        ></textarea>
+      <td>
+        <button type="info" style="float: left">上传附件</button>
       </td>
     </tr>
     <tr>
@@ -236,20 +222,20 @@
       </td>
     </tr>
   </table>
-<div  style="margin: 0 auto;width: 900px;">
-  <button type="info" style="float: left;">提交</button>
-  <button type="info" style="float: left">存为草稿</button>
-  <button type="info" style="float: left">存为范本</button>
-  <button type="info" style="float: left">启用阅示</button>
-<br/>
-<br/>
-  <button type="info" style="float: left">序号</button>
-  <button type="info" style="float: left">处理步骤</button>
-  <button type="info" style="float: left">签名</button>
-  <button type="info" style="float: left">操作</button>
-  <button type="info" style="float: left">日期</button>
-  <button type="info" style="float: left">备注</button>
-</div>
+  <div style="margin: -8 auto; width: 1200px">
+    <button type="info" style="float: left" @click="Add()">提交</button>
+    <button type="info" style="float: left">存为草稿</button>
+    <button type="info" style="float: left">存为范本</button>
+    <button type="info" style="float: left">启用阅示</button>
+    <br />
+    <br />
+    <button type="info" style="float: left">序号</button>
+    <button type="info" style="float: left">处理步骤</button>
+    <button type="info" style="float: left">签名</button>
+    <button type="info" style="float: left">操作</button>
+    <button type="info" style="float: left">日期</button>
+    <button type="info" style="float: left; width: 900px">备注</button>
+  </div>
 </template>
 <script>
 export default {
@@ -264,25 +250,34 @@ export default {
         endDate: "",
         day: "",
         leaveCause: "",
-        leaveImg: "",
+        leaveImg: "1.png",
         leaveRemark: "",
+      },
+      ljq: {
+        action: "提交",
+        bpmUser: window.localStorage["account"],
+        bpmUserPass: window.localStorage["password"],
+        fullName: window.localStorage["fullName"],
+        processName: "请假流程",
+        planDate: "",
       },
     };
   },
-  mounted() {
-    this.Add();
-  },
+  mounted() {},
   methods: {
     Add() {
+      this.ljq.planDate=JSON.stringify(this.form)
+      console.log(this.ljq.bpmUserPass);
+      this.ljq.bpmUserPass=this.ljq.bpmUserPass.trim();
       this.$axios({
-        method: "",
-        url: "",
-        data: this.form,
+        method: "post",
+        url: "http://localhost:60618/api/startleave",
+        data: this.ljq,
       }).then((res) => {
-        if (res.data) {
-          ("提交失败");
-        } else {
+        if (res.data!=null) {
           alert("提交成功");
+        } else {
+          alert("提交失败");
         }
       });
     },

@@ -3,20 +3,14 @@
     <table
       border="1px"
       bordercolor="#E4E7ED"
-      width="941xp"
+      width="1000xp"
       cellpadding="5"
       cellspacing="0"
     >
       <tr>
         <td colspan="4">
-          <img
-            :src="imgurl"
-            :width="300"
-            :height="70"
-            alt=""
-            style="float: left; margin-left: 10px"
-          />
-          <h2 style="margin-right: 303px">离职审批表</h2>
+          
+          <h2 style="margin-right: 303px">会议室新增</h2>
         </td>
       </tr>
       <tr>
@@ -29,8 +23,8 @@
         </td>
       </tr>
       <tr>
-        <td align="left" width="225" style="background-color: #f2f6fc">
-          申请人
+        <td align="left" width="335" style="background-color: #f2f6fc">
+          会议室名称
         </td>
         <td width="125">
           <input
@@ -49,8 +43,46 @@
             v-model="form.applicant"
           />
         </td>
+        <td align="left" width="225" style="background-color: #f2f6fc">座位</td>
+        <td width="225">
+          <input
+            type="text"
+            style="
+              outline-color: invert;
+              outline-style: none;
+              outline-width: 0px;
+              border: none;
+              border-style: none;
+              text-shadow: none;
+              -webkit-appearance: none;
+              outline-color: transparent;
+              box-shadow: none;
+            "
+            v-model="form.department"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td align="left" width="335" style="background-color: #f2f6fc">楼层</td>
+        <td width="125">
+          <input
+            type="text"
+            style="
+              outline-color: invert;
+              outline-style: none;
+              outline-width: 0px;
+              border: none;
+              border-style: none;
+              text-shadow: none;
+              -webkit-appearance: none;
+              outline-color: transparent;
+              box-shadow: none;
+            "
+            v-model="form.applicant"
+          />
+        </td>
         <td align="left" width="225" style="background-color: #f2f6fc">
-          申请部门
+          可容纳人数
         </td>
         <td width="225">
           <input
@@ -71,130 +103,65 @@
         </td>
       </tr>
       <tr>
-        <td align="left" width="225" style="background-color: #f2f6fc">
-          申请日期
-        </td>
-        <td width="225">
-          <input
-            type="date"
-            v-model="form.endDate"
-            placeholder="选择日期"
-            style="
-              outline-color: invert;
-              outline-style: none;
-              outline-width: 0px;
-              border: none;
-              border-style: none;
-              text-shadow: none;
-              -webkit-appearance: none;
-              outline-color: transparent;
-              box-shadow: none;
-            "
-          />
-        </td>
-        <td align="left" width="225" style="background-color: #f2f6fc"></td>
-        <td width="225"></td>
-      </tr>
-      <tr>
-        <td
-          align="left"
-          colspan="4"
-          style="background-color: rgb(217, 236, 255)"
-        >
-          离职详细信息
-        </td>
-      </tr>
-      <tr>
-        <td align="left" width="225" style="background-color: #f2f6fc">职位</td>
-        <td width="225">
-          <input
-            type="text"
-            style="
-              outline-color: invert;
-              outline-style: none;
-              outline-width: 0px;
-              border: none;
-              border-style: none;
-              text-shadow: none;
-              -webkit-appearance: none;
-              outline-color: transparent;
-              box-shadow: none;
-            "
-            v-model="form.position"
-          />
+        <td align="left" width="335" style="background-color: #f2f6fc">空调</td>
+        <td width="125">
+          <select>
+            <option>有</option>
+            <option>无</option>
+          </select>
         </td>
         <td align="left" width="225" style="background-color: #f2f6fc">
-          入职日期
+          投影仪
         </td>
         <td width="225">
-          <input
-            type="date"
-            style="
-              outline-color: invert;
-              outline-style: none;
-              outline-width: 0px;
-              border: none;
-              border-style: none;
-              text-shadow: none;
-              -webkit-appearance: none;
-              outline-color: transparent;
-              box-shadow: none;
-            "
-            v-model="form.stakeTime"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td align="left" width="225" style="background-color: #f2f6fc">
-          离职日期
-        </td>
-        <td width="225">
-          <input
-            type="date"
-            style="
-              outline-color: invert;
-              outline-style: none;
-              outline-width: 0px;
-              border: none;
-              border-style: none;
-              text-shadow: none;
-              -webkit-appearance: none;
-              outline-color: transparent;
-              box-shadow: none;
-            "
-            v-model="form.endTime"
-          />
-        </td>
-        <td align="left" width="225" style="background-color: #f2f6fc">
-          离职类型
-        </td>
-        <td width="225">
-          <select
-            placeholder="离职类型"
-            style="
-              width: 225px;
-              outline-color: invert;
-              outline-style: none;
-              outline-width: 0px;
-              border: none;
-              border-style: none;
-              text-shadow: none;
-              -webkit-appearance: none;
-              outline-color: transparent;
-              box-shadow: none;
-            "
-            v-model="form.typeId"
-          >
-            <option label="离职" value="785415"></option>
-            <option label="辞退" value="7857254"></option>
+          <select>
+            <option>有</option>
+            <option>无</option>
           </select>
         </td>
       </tr>
       <tr>
-        <td align="left" width="225" style="background-color: #f2f6fc">
-          离职原因
+        <td align="left" width="335" style="background-color: #f2f6fc">白板</td>
+        <td width="125">
+          <select>
+            <option>有</option>
+            <option>无</option>
+          </select>
         </td>
-        <td width="225">
+        <td align="left" width="335" style="background-color: #f2f6fc">网络</td>
+        <td width="125">
+          <select>
+            <option>有</option>
+            <option>无</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" width="335" style="background-color: #f2f6fc">
+          网络范围
+        </td>
+        <td width="125">
+          <select>
+            <option>有</option>
+            <option>无</option>
+          </select>
+        </td>
+        <td align="left" width="335" style="background-color: #f2f6fc">
+          饮水机
+        </td>
+        <td width="125">
+          <select>
+            <option>有</option>
+            <option>无</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="left" width="335" style="background-color: #f2f6fc">
+          管理员
+        </td>
+        <td width="125" colspan="3">
           <input
             type="text"
             style="
@@ -208,28 +175,60 @@
               outline-color: transparent;
               box-shadow: none;
             "
-            v-model="form.depwhy"
+            v-model="form.applicant"
           />
         </td>
       </tr>
 
-      <tr>
-        <td
-          align="left"
-          colspan="4"
-          style="background-color: rgb(217, 236, 255)"
-        >
-          备注
+      <tr style="background-color: #f2f6fc">
+        <td align="left" width="225">照片</td>
+        <td colspan="3">
+          <input
+            type="file"
+            style="
+              float: left;
+              width: 70px;
+              outline-color: invert;
+              outline-style: none;
+              outline-width: 0px;
+              border: none;
+              border-style: none;
+              text-shadow: none;
+              -webkit-appearance: none;
+              outline-color: transparent;
+              box-shadow: none;
+            "
+          />
         </td>
       </tr>
       <tr>
-        <td colspan="4">
-          <textarea cols="129" rows="5" v-model="form.depnote"></textarea>
+        <td align="left" style="background-color: #f2f6fc">备注</td>
+        <td colspan="3">
+          <textarea
+            cols="120"
+            style="
+              outline-color: invert;
+              outline-style: none;
+              outline-width: 0px;
+              border: none;
+              border-style: none;
+              text-shadow: none;
+              -webkit-appearance: none;
+              outline-color: transparent;
+              box-shadow: none;
+            "
+          ></textarea>
         </td>
       </tr>
     </table>
 
-    <table>
+    <table
+      border="1px"
+      bordercolor="#E4E7ED"
+      width="1000xp"
+      cellpadding="5"
+      cellspacing="0"
+    >
       <tr>
         <td align="left" style="background-color: #f2f6fc">
           <button @click="DepAdd()">提交</button>&nbsp;
@@ -253,15 +252,14 @@
     </table>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   data() {
     return {
       day: new Date(),
       //定义一个定时器的变量
       houtas: new Date(), // 获取当前时间
-      imgurl: require("../assets/tu.png"),
 
       form: {
         applicant: "",
@@ -277,7 +275,7 @@ export default {
       users: {
         action: "同意",
         bpmUser: window.localStorage["bpmUser"],
-        bpmUserPass: window.localStorage["bpmUserPass"].trim(),
+        bpmUserPass: window.localStorage["bpmUserPass"],
         fullName: window.localStorage["fullName"],
         processName: "离职审批表",
         planDate: "",
@@ -313,7 +311,7 @@ export default {
         data: this.users,
         method: "post",
       }).then((res) => {
-        if (res.data !=null) {
+        if (res.data != null) {
           alert("提交成功");
         } else {
           alert("提交失败");
@@ -323,3 +321,5 @@ export default {
   },
 };
 </script>
+
+

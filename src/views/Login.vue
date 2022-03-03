@@ -17,10 +17,11 @@ export default {
     return {
       user: "",
       pwd: "",
-      ss: [],
-      bpmUser: "",
-      bpmUserPass: "",
+      ljq: [],
+      account: '',
+      password: "",
       fullName: "",
+      displayName:"",
     };
   },
   methods: {
@@ -38,18 +39,16 @@ export default {
           alert("登录失败");
         } else {
           alert("登录成功");
-          console.log(Response);
-         this.ss = Response.data.ss;
-         console.log(this.ss);
-          this.bpmUser=this.ss.account;
-          this.bpmUserPass=this.ss.password;
-          this.fullName=this.ss.account;
-          window.localStorage["bpmUser"] = this.bpmUser;
-          window.localStorage["bpmUserPass"] = this.bpmUserPass;
-          window.localStorage["fullName"] = this.bpmUser;
-          console.log(this.ss);
-
-          this.$router.push({ name: "Menu" });
+          this.ljq = Response.data.ss;
+          this.account = this.ljq.account;
+          this.password = this.ljq.password;
+          this.fullName = this.ljq.account;
+          this.displayName = this.ljq.displayName;
+          window.localStorage["account"] = this.account;
+          window.localStorage["password"] = this.password;
+          window.localStorage["fullName"] = this.fullName;
+          window.localStorage["displayName"] = this.displayName;
+          this.$router.push("/Menu?Account=" + this.user);
         }
       });
     },
