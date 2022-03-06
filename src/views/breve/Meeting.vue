@@ -10,7 +10,7 @@
       <tr>
         <td colspan="4">
           
-          <h2 style="margin-right: 303px">会议室新增</h2>
+          <h2>会议室新增</h2>
         </td>
       </tr>
       <tr>

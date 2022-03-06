@@ -5,8 +5,8 @@
                 cellspacing="0">
                 <tr>
                     <td colspan="4">
-                        <img :src="imgurl" :width="300" :height="70" alt="" style="float: left;" />&emsp;
-                        <h2 style="margin-right: 350px;">固定资产资料借用表</h2>
+                        
+                        <h2>固定资产资料借用表</h2>
                     </td>
                 </tr>
                 <tr>

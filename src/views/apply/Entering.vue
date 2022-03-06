@@ -1,41 +1,11 @@
 <template>
-    <div class=".BodyDiv">
-        <div align="center">
+    <div>
+        <div>
             <table cellspacing="0" cellpadding="0" width="900" border="0">
                 <tbody>
-                    <tr>
-                        <td width="300">
-                            <p align="left">
-                                <!-- <font color="white"> -->
-                                <!-- <img src="../../../../assets/images/logo2.jpg" /></font> -->
-                            </p>
-                        </td>
-                        <td width="300">
-                            <p align="center">
-                                <font color="white"></font>
-                            </p>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td height="25">
-                            <p align="center">
-                                <font color="white"></font>
-                            </p>
-                        </td>
-                        <td>
-                            <p align="center">
-                                <font color="white"></font>
-                            </p>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
+                    
                     <tr>
                         <td bgcolor="#1e3c7b" height="52" colspan="3">
-                            <p align="center">
-                                <font style="FONT-SIZE: 18px; color: #fff">杭州申昊软件工程项目管理系统 </font>
-                            </p>
                             <p align="center">
                                 <font style="FONT-SIZE: 18px; color: #fff">员工录入核定表</font>
                             </p>
@@ -160,34 +130,29 @@
                       border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
             </table>
-            <table border="1px" bordercolor="#E4E7ED" width="900xp" cellpadding="5" cellspacing="0">
+            <table border="1px" bordercolor="#E4E7ED" :ref="forms"  width="900" cellpadding="5" cellspacing="0">
                 <tr>
-                    <td align="left" colspan="4" style="background-color:rgb(217,236,255);">员工亲属详细信息</td>
+                    <td align="left" colspan="3" style="background-color:rgb(217,236,255);width: 900px;">员工亲属详细信息</td>
                 </tr>
                 <tr>
-                    <td align="left" width="225" style="background-color:#F2F6FC;">亲属姓名</td>
+                    <td align="left" width="300" style="background-color:#F2F6FC;">亲属姓名</td>
 
-                    <td align="left" width="225" style="background-color:#F2F6FC;">与本人关系</td>
-                    <td align="left" width="225" style="background-color:#F2F6FC;">亲属在公司任何部门工作、任何职位</td>
+                    <td align="left" width="300" style="background-color:#F2F6FC;">与本人关系</td>
+                    <td align="left" width="300" style="background-color:#F2F6FC;">亲属在公司任何部门工作、任何职位</td>
                 </tr>
                 <tr>
 
                     <td width="225"><input type="text" v-model="form.Relative_Name"
-                            style="outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+                            style="width: 250px;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                 border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
-                    <td width="225"><input type="text" v-model="form.Relative_Between" style="outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+                    <td width="225"><input type="text" v-model="form.Relative_Between" style="width: 250px;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
           border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none">
                     </td>
                     <td width="225"><input type="text" v-model="form.Relative_Position"
-                            style="outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+                            style="width: 250px;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                 border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
             </table>
-            <div style="width: 900px" align="left">
-
-
-            </div>
-            <div style="clear: both"></div>
             <div style="width: 900px" align="center">
                 <div style="font-family: Arial; font-weight: 700; text-align: left; line-height: 20px">
                     备注
@@ -199,7 +164,7 @@
                     <tr>
                         <td width="698">
                             <textarea ID="XCommentsTextBox2" CssClass="printer" runat="server" BorderColor="#DCDCDC"
-                                BorderWidth="1" Width="100%" Rows="3" TextMode="MultiLine"></textarea>
+                                BorderWidth="1" cols="125" Rows="3" TextMode="MultiLine"></textarea>
                         </td>
                     </tr>
                 </tbody>

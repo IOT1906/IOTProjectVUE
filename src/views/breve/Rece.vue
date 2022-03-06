@@ -3,8 +3,8 @@
         <table border="1px" bordercolor="#E4E7ED" width="1000xp" cellpadding="5" cellspacing="0">
             <tr>
                 <td colspan="4">
-                    <img :src="imgurl" :width="300" :height="70" alt="" style="float: left; margin-left: 10px" />
-                    <h2 style="margin-right: 303px">接待申请表</h2>
+                    
+                    <h2 style="text-align: center;">接待申请表</h2>
                 </td>
             </tr>
             <tr>

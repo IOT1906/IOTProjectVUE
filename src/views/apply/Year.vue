@@ -4,8 +4,7 @@
             <table border="1px" bordercolor="#E4E7ED" :ref="forms"  width="1000xp" cellpadding="5" cellspacing="0">
                 <tr>
                     <td colspan="4">
-                       
-                        <h2 style="margin-right: 350px;">年度计划表</h2>
+                        <h2 style="text-align: center;">年度计划表</h2>
                     </td>
                 </tr>
                 <tr>
@@ -189,32 +188,32 @@
                     tabulation_time: new Date(),       //获取当前时间
                     particular_year: new Date(),       //获取当前年份
                 },
-                
+                form:{
+                    action: "提交",
+                    bpmUser: window.localStorage["account"],
+                    bpmUserPass: window.localStorage["password"],
+                    fullName: window.localStorage["fullName"],
+                    processName: "招聘计划流程",
+                    annual_plans: "",
+                    ioT_Priject_Domininput: "",
+                },
             };
         },
         created() {
             this.forms.particular_year = new Date().getFullYear().toString();
         },
         methods: {
+           
             onclick() {
+                this.form.annual_plans=JSON.stringify(this.forms);
+                this.form.ioT_Priject_Domininput=JSON.stringify(this.formdate);
                 this.$axios({
-                    url:"http://localhost:60618/api/AnnualAdd",
+                    url:"http://localhost:60618/api/StartPlan",
                     method:"post",
-                    data:this.forms
+                    data: this.form
                 }).then((res) => {
-                    if (res.data > 0) {
-                        this.$axios({
-                    url:"http://localhost:60618/api/ExpectedAdd",
-                    method:"post",
-                    data:this.formdate
-                }).then((res) => {
-                    if (res.data > 0) {
+                    if (res.data !=null ) {
                         this.$message("数据提交成功!");
-                    }
-                    else {
-                        this.$message("数据提交失败!");
-                    }
-                })
                     }
                     else {
                         this.$message("数据提交失败!");
@@ -232,7 +231,6 @@
             let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
             _this.forms.tabulation_time = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
             console.log(this.gettime)
-
         },
     }
 </script>

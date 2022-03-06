@@ -1,7 +1,7 @@
 <template>
     <div style="border-left: 500px;">
         <div style="width:1000px;">
-            <table border="1px" bordercolor="#E4E7ED" :ref="forms"  width="1000xp" cellpadding="5" cellspacing="0">
+            <table border="1px" bordercolor="#E4E7ED" :ref="form"  width="1000xp" cellpadding="5" cellspacing="0">
                 <tr>
                     <td colspan="4">
                         <h2 style="text-align: center;">刻章申请表</h2>
@@ -12,56 +12,48 @@
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">申请人</td>
-                    <td><input type="text" 
+                    <td><input type="text" v-model="form.applicant"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                     <td align="left" style="background-color:#F2F6FC;">申请部门</td>
-                    <td><input type="text" 
+                    <td><input type="text"  v-model="form.department"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">申请日期</td>
-                    <td width="225"><input type="text" v-model="application_date" :disabled="true"
+                    <td width="225"><input type="text" v-model="form.depTime" :disabled="true"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                     <td align="left" width="225" style="background-color:#F2F6FC;"></td>
                     <td align="left" width="225" style="background-color:#F2F6FC;"></td>
                 </tr>
             </table>
-            <table border="1px" bordercolor="#E4E7ED" :ref="formdate" width="1000" cellpadding="5" cellspacing="0">
+            <table border="1px" bordercolor="#E4E7ED" width="1000" cellpadding="5" cellspacing="0">
                 <tr>
                     <td align="left" colspan="4" style="background-color:rgb(217,236,255);">详细信息</td>
                 </tr>
                 <tr>
                     <td width="237" style="background-color:#F2F6FC;">刻章名称</td>
                     <td colspan="3">
-                        
+                        <input type="text" v-model="form.seal_name"
+                            style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+                    border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none">
                     </td>
                 </tr>
                 <tr>
                     <td style="background-color:#F2F6FC;">用途</td>
                     <td colspan="3">
-                        <textarea rows="" cols="100"  
+                        <textarea rows="" cols="100"   v-model="form.myProperty"
                             style="outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td width="237" style="background-color:#F2F6FC;">刻章留印标记</td>
-                    <td colspan="3" style="background-color:#F2F6FC;">
-                        <el-upload
-  action="https://jsonplaceholder.typicode.com/posts/"
-  list-type="picture-card"
-  :on-preview="handlePictureCardPreview"
-  :on-remove="handleRemove" >
-  <i class="el-icon-plus"></i>
-</el-upload>
-<el-dialog sync="dialogVisible">
-  <img width="100%" :src="dialogImageUrl" alt="">
-  <br/>
-</el-dialog>
-<button style="background-color: rgb(31, 173, 31);color: #ffffffd5;width: 148px;text-align: left;">选择图片</button>
+                    <td colspan="3" align="left" style="background-color:#F2F6FC;">
+                        <input type="file" :model="form.imprint_mark" style="float: left; width: 70px;;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none" >
                     </td>
                 </tr>
                 <tr>
@@ -71,7 +63,7 @@
             <table border="1px" bordercolor="#E4E7ED" width="1000xp" cellpadding="5" cellspacing="0">
                 <tr>
                     <td align="left">
-                        <textarea rows="" cols="136"  
+                        <textarea rows="" cols="136"   v-model="form.remarks"
                             style="outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></textarea>
                     </td>
@@ -106,7 +98,23 @@
     export default {
         data() {
             return {
-                application_date:new Date(),
+                form:{
+                applicant:window.localStorage["displayName"],
+                department:"",
+                depTime:new Date(),
+                seal_name:"",
+                myProperty:"",
+                imprint_mark:[],
+                remarks:"",
+                },
+                formdata:{
+                    action: "提交",
+                    bpmUser: window.localStorage["account"],
+                    bpmUserPass: window.localStorage["password"],
+                    fullName: window.localStorage["fullName"],
+                    processName: "刻章申请流程",
+                    engrave: "",
+                },
             };
         },
         created() {
@@ -114,7 +122,21 @@
         },
         methods: {
             onclick() {
-                
+                this.form.imprint_mark=this.form.imprint_mark.toString()
+                alert(this.form.imprint_mark);
+                this.formdata.engrave=JSON.stringify(this.form);
+                this.$axios({
+                    url:"http://localhost:60618/api/StartEngrave",
+                    method:"post",
+                    data: this.formdata
+                }).then((res) => {
+                    if (res.data !=null ) {
+                        this.$message("数据提交成功!");
+                    }
+                    else {
+                        this.$message("数据提交失败!");
+                    }
+                })
             },
         },
        mounted: function () {
@@ -125,7 +147,7 @@
             let hh = new Date().getHours();
             let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
             let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
-            _this.application_date = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
+            _this.form.depTime = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
             console.log(this.gettime)
         },
     }

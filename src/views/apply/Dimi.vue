@@ -10,7 +10,7 @@
       <tr>
         <td colspan="4">
         
-          <h2 style="margin-right: 303px">离职审批表</h2>
+          <h2 style="text-align: center;">离职审批表</h2>
         </td>
       </tr>
       <tr>

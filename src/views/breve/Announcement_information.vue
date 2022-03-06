@@ -1,7 +1,7 @@
 <template>
     <div style="border-left: 500px;">
         <div style="width:1000px;">
-            <table border="1px" bordercolor="#E4E7ED" :ref="forms"  width="1000xp" cellpadding="5" cellspacing="0">
+            <table border="1px" bordercolor="#E4E7ED" :ref="form"  width="1000xp" cellpadding="5" cellspacing="0">
                 <tr>
                     <td colspan="4">
                         <h2 style="text-align: center;">公告基本信息</h2>
@@ -12,24 +12,24 @@
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">类型</td>
-                    <td><input type="text" 
+                    <td><input type="text" v-model="form.typing"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                     <td align="left" style="background-color:#F2F6FC;">发布时间</td>
-                    <td><input type="date" 
+                    <td><input type="date"  v-model="form.release_time"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">标题</td>
-                    <td colspan="3"><input type="text" 
+                    <td colspan="3"><input type="text" v-model="form.title" 
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">内容</td>
                     <td colspan="3">
-                         <input type="text" 
+                         <input type="text"  v-model="form.content"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none">
                     </td>
@@ -37,7 +37,7 @@
                 <tr style="background-color:#F2F6FC;">
                     <td align="left" width="225">附件</td>
                     <td colspan="3">
-<input type="file" style="float: left; width: 70px;;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+<input type="file" :model="form.attachment" style="float: left; width: 70px;;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
 border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none" >
 
                 
@@ -64,6 +64,13 @@ border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: tra
         data() {
             return {
                 application_date:new Date(),
+                form:{
+                    typing:"",
+                    release_time:"",
+                    title:"",
+                    content:"",
+                    attachment:""
+                }
             };
         },
         created() {
@@ -71,7 +78,18 @@ border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: tra
         },
         methods: {
             onclick() {
-                
+                this.$axios({
+                    url:"http://localhost:60618/api/NoticeAdd",
+                    method:"post",
+                    data: this.form
+                }).then((res) => {
+                    if (res.data !=null ) {
+                        this.$message("数据提交成功!");
+                    }
+                    else {
+                        this.$message("数据提交失败!");
+                    }
+                })
             },
         },
        mounted: function () {
