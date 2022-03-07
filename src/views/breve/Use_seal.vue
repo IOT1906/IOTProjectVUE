@@ -116,7 +116,7 @@
             return {
                 forms:{
                     applicant:window.localStorage["displayName"],
-                    department:'',
+                    department:'人事部',
                     depTime:'',
                     seal_name:'',
                     lend_out:1,
@@ -141,8 +141,6 @@
         },
         methods: {
             onclick() {
-                console.log(this.forms);
-                alert(this.forms.lend_out);
                 this.formdata.use_sealing=JSON.stringify(this.forms);
                 this.$axios({
                     url:"http://localhost:60618/api/Startuse",

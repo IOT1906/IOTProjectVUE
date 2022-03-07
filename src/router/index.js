@@ -29,7 +29,7 @@ import Meeting from '../views/breve/Meeting.vue'
 import Procur from '../views/breve/Procur.vue'
 import borrow from '../views/breve/borrow.vue'
 import connect from '../views/breve/connect.vue'
-
+import flow from '../views/breve/flow.vue'
 
 
 
@@ -184,6 +184,12 @@ const routes = [{
 //     name: 'connect',
 //     component: connect
 // },
+
+{
+    path: '/flow',
+    name: 'flow',
+    component: flow
+},
 //菜单
 {
     path: '/Menu',
@@ -308,6 +314,11 @@ const routes = [{
         path: '/Choose',
         name: 'Choose',
         component: Choose
+    },
+    {
+        path: '/flow',
+        name: 'flow',
+        component: flow
     },
     ]
 },
