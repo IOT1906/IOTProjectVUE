@@ -113,7 +113,7 @@
                 },
                 day: new Date(),
                 Res: {
-                    Applicant: "",
+                    Applicant:  window.localStorage["displayName"],
                     Applicationdepartment:"",
                     Dateofapplication: new Date(),
                     Returndate:"",

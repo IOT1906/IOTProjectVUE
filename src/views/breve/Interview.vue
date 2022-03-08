@@ -658,7 +658,7 @@ export default {
   data() {
     return {
       form: {
-        proposer: "",
+        proposer:  window.localStorage["displayName"],
         applyDemo: "",
         applyTime: "",
         leaveType: "",

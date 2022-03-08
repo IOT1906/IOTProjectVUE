@@ -76,7 +76,6 @@ export default {
                 this.total=res.data.total;
             })
         },
-        
       handleEdit(row) {
         this.form.stepID=row.stepID;
         this.form.processName=row.processName;

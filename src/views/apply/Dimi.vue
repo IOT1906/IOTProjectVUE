@@ -257,7 +257,7 @@ export default {
       houtas: new Date(), // 获取当前时间
       
       form: {
-        applicant: "",
+        applicant:  window.localStorage["displayName"],
         department: "",
         position: "",
         stakeTime: new Date(),
