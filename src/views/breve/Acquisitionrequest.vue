@@ -126,7 +126,7 @@
                 day: new Date(),
                
                 Res: {
-                    Applicant: "",
+                    Applicant:  window.localStorage["displayName"],
                     Applicationdepartment:"",
                     Dateapplication: new Date(),
                     Number: "",

@@ -795,6 +795,7 @@ export default {
   data() {
     return {
       form: {
+<<<<<<< HEAD
         interviewLister: window.localStorage["displayName"],
         interviewListerDemp: "人事部",
         interviewListerDate: new Date(),
@@ -826,6 +827,18 @@ export default {
         fullName: window.localStorage["fullName"],
         processName: "",
         planDate: "",
+=======
+        proposer:  window.localStorage["displayName"],
+        applyDemo: "",
+        applyTime: "",
+        leaveType: "",
+        startDate: "",
+        endDate: "",
+        day: "",
+        leaveCause: "",
+        leaveImg: "",
+        leaveRemark: "",
+>>>>>>> 431fd9497f260bd4abb3b939ab887387f59e9510
       },
     };
   },

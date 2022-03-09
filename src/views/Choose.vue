@@ -104,7 +104,13 @@
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none;width:1000px">
                     固定资产交接申请流程</button></td>
                     <td>
+<<<<<<< HEAD
                         </td>
+=======
+                        <button @click="this.$router.push('/flow')" style="color: dodgerblue;font-size: 28px;text-align:center;background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+                            border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none;width:500px">
+                            总流程</button></td>
+>>>>>>> 431fd9497f260bd4abb3b939ab887387f59e9510
         </tr>
     </table>
 </template>

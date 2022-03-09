@@ -175,7 +175,7 @@
                 day: new Date(),
                
                 Res: {
-                    Applicationdepartment: "",
+                    Applicationdepartment:  window.localStorage["displayName"],
                     Applicationtime: new Date(),
                     Jobtitle: "",
                     Jobdescription: "",
