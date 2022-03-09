@@ -6,7 +6,7 @@
                 <tr>
                     <td colspan="4">
                        
-                        <h2 style="margin-right: 350px;">人力资源申请表</h2>
+                        <h2 style="text-align: center;">人力资源申请表</h2>
                     </td>
                 </tr>
                 <tr>

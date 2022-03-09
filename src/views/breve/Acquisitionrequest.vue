@@ -6,7 +6,7 @@
                 <tr>
                     <td colspan="4">
                         
-                        <h2 style="margin-right: 350px;">固定资产购置申请表</h2>
+                        <h2>固定资产购置申请表</h2>
                     </td>
                 </tr>
                 <tr>

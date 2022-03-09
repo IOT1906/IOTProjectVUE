@@ -17,7 +17,7 @@ export default {
     return {
       user: "",
       pwd: "",
-      ljq: [],
+      ss: [],
       account: '',
       password: "",
       fullName: "",
@@ -38,17 +38,17 @@ export default {
         if (Response.data == "登录失败") {
           alert("登录失败");
         } else {
-          alert("登录成功");
-          this.ljq = Response.data.ss;
-          this.account = this.ljq.account;
-          this.password = this.ljq.password;
-          this.fullName = this.ljq.account;
-          this.displayName = this.ljq.displayName;
+          this.ss = Response.data.ss;
+          this.account = this.ss.account;
+          this.password = this.ss.password;
+          this.fullName = this.ss.account;
+          this.displayName = this.ss.displayName;
           window.localStorage["account"] = this.account;
-          window.localStorage["password"] = this.password;
+          window.localStorage["password"] = this.pwd;
           window.localStorage["fullName"] = this.fullName;
           window.localStorage["displayName"] = this.displayName;
           this.$router.push("/Menu?Account=" + this.user);
+          this.$message("欢迎"+this.displayName+"登录成功");
         }
       });
     },

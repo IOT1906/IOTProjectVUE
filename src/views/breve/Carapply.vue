@@ -23,7 +23,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyProposer"
           style="
             outline-color: invert;
             outline-style: none;
@@ -43,7 +43,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.applyDemo"
+          v-model="form.carapplyTProposerDemp"
           style="
             outline-color: invert;
             outline-style: none;
@@ -65,7 +65,7 @@
       <td width="225">
         <input
           type="date"
-          v-model="form.applyTime"
+          v-model="form.carapplyProposerDate"
           placeholder="选择日期"
           style="
             outline-color: invert;
@@ -84,7 +84,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.applyTime"
+          v-model="form.carapplyWeek"
           style="
             outline-color: invert;
             outline-style: none;
@@ -111,7 +111,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyDepart"
           style="
             outline-color: invert;
             outline-style: none;
@@ -131,7 +131,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.applyDemo"
+          v-model="form.carapplyTarget"
           style="
             outline-color: invert;
             outline-style: none;
@@ -153,7 +153,7 @@
       <td width="225">
         <input
           type="date"
-          v-model="form.applyTime"
+          v-model="form.carapplyStartDate"
           placeholder="选择日期"
           style="
             outline-color: invert;
@@ -174,7 +174,7 @@
       <td width="225">
         <input
           type="date"
-          v-model="form.applyTime"
+          v-model="form.carapplyEndDate"
           placeholder="选择日期"
           style="
             outline-color: invert;
@@ -197,7 +197,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyRiding"
           style="
             outline-color: invert;
             outline-style: none;
@@ -225,7 +225,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyCommon"
           style="
             outline-color: invert;
             outline-style: none;
@@ -251,7 +251,7 @@
       <td width="225" colspan="3">
         <textarea
           cols="100"
-          v-model="form.leaveCause"
+          v-model="form.carapplyReason"
           style="
             outline-color: invert;
             outline-style: none;
@@ -272,12 +272,12 @@
         出差详细信息
       </td>
     </tr>
- <tr>
+    <tr>
       <td align="left" width="225" style="background-color: #f2f6fc">车牌号</td>
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyPlate"
           style="
             outline-color: invert;
             outline-style: none;
@@ -297,7 +297,7 @@
       <td width="225">
         <input
           type="date"
-          v-model="form.applyDemo"
+          v-model="form.carapplyDeparture"
           style="
             outline-color: invert;
             outline-style: none;
@@ -312,14 +312,12 @@
         />
       </td>
     </tr>
- <tr>
-      <td align="left" width="225" style="background-color: #f2f6fc">
-        途径
-      </td>
+    <tr>
+      <td align="left" width="225" style="background-color: #f2f6fc">途径</td>
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyApproach"
           style="
             outline-color: invert;
             outline-style: none;
@@ -340,14 +338,14 @@
         colspan="2"
       ></td>
     </tr>
-  <tr>
+    <tr>
       <td align="left" width="225" style="background-color: #f2f6fc">
         出发表盘公里数
       </td>
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyKilometre"
           style="
             outline-color: invert;
             outline-style: none;
@@ -367,7 +365,7 @@
       <td width="225">
         <input
           type="text"
-          v-model="form.applyDemo"
+          v-model="form.carapplyFinish"
           style="
             outline-color: invert;
             outline-style: none;
@@ -383,14 +381,14 @@
       </td>
     </tr>
 
- <tr>
+    <tr>
       <td align="left" width="225" style="background-color: #f2f6fc">
         实际公里数
       </td>
       <td width="225">
         <input
           type="text"
-          v-model="form.proposer"
+          v-model="form.carapplyPractical"
           style="
             outline-color: invert;
             outline-style: none;
@@ -404,13 +402,11 @@
           "
         />
       </td>
-      <td align="left" width="225" style="background-color: #f2f6fc">
-        驾驶员
-      </td>
+      <td align="left" width="225" style="background-color: #f2f6fc">驾驶员</td>
       <td width="225">
         <input
           type="text"
-          v-model="form.applyDemo"
+          v-model="form.carapplyDriver"
           style="
             outline-color: invert;
             outline-style: none;
@@ -434,7 +430,7 @@
       <td width="225" colspan="4">
         <textarea
           cols="120"
-          v-model="form.leaveRemark"
+          v-model="form.carapplyRemark"
           style="
             outline-color: invert;
             outline-style: none;
@@ -451,7 +447,7 @@
     </tr>
   </table>
   <div style="margin: -8 auto; width: 1200px">
-    <button type="info" style="float: left">提交</button>
+   <button type="info" style="float: left" @click="Add()">提交</button>
     <button type="info" style="float: left">存为草稿</button>
     <button type="info" style="float: left">存为范本</button>
     <button type="info" style="float: left">启用阅示</button>
@@ -478,33 +474,53 @@ export default {
   data() {
     return {
       form: {
-        proposer: "",
-        applyDemo: "",
-        applyTime: "",
-        leaveType: "",
-        startDate: "",
-        endDate: "",
-        day: "",
-        leaveCause: "",
-        leaveImg: "",
-        leaveRemark: "",
+        carapplyProposer: "",
+        carapplyTProposerDemp: "",
+        carapplyProposerDate: "",
+        carapplyWeek: "",
+        carapplyDepart: "",
+        carapplyTarget: "",
+        carapplyStartDate: "",
+        carapplyEndDate: "",
+        carapplyRiding: "",
+        carapplyCommon: "",
+        carapplyReason: "",
+        carapplyPlate: "",
+        carapplyDeparture: "",
+        carapplyApproach: "",
+        carapplyKilometre: "",
+        carapplyFinish: "",
+        carapplyPractical: "",
+        carapplyDriver: "",
+        carapplyRemark: "",
+      },
+       ljq: {
+        action: "提交",
+        bpmUser: window.localStorage["account"],
+        bpmUserPass: window.localStorage["password"],
+        fullName: window.localStorage["fullName"],
+        processName: "用车申请流程",
+        planDate: "",
       },
     };
   },
   mounted() {
-    this.Add();
+  
   },
   methods: {
-    Add() {
+      Add() {
+      this.ljq.planDate=JSON.stringify(this.form)
+      console.log(this.ljq.bpmUserPass);
+      this.ljq.bpmUserPass=this.ljq.bpmUserPass.trim();
       this.$axios({
         method: "post",
-        url: "http://localhost:60618/aopi/LeaveAdd",
-        data: this.form,
+        url: "http://localhost:60618/api/StartCarapply",
+        data: this.ljq,
       }).then((res) => {
-        if (res.data) {
-          ("提交失败");
-        } else {
+        if (res.data!=null) {
           alert("提交成功");
+        } else {
+          alert("提交失败");
         }
       });
     },

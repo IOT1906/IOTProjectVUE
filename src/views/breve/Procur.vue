@@ -4,7 +4,7 @@
             <tr>
                 <td colspan="4">
                     
-                    <h2 style="margin-right: 303px">日常用品采购申请表单</h2>
+                    <h2>日常用品采购申请表单</h2>
                 </td>
             </tr>
             <tr>

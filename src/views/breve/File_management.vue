@@ -1,7 +1,7 @@
 <template>
     <div style="border-left: 500px;">
         <div style="width:1000px;">
-            <table border="1px" bordercolor="#E4E7ED" :ref="forms"  width="1000xp" cellpadding="5" cellspacing="0">
+            <table border="1px" bordercolor="#E4E7ED" :ref="form"  width="1000xp" cellpadding="5" cellspacing="0">
                 <tr>
                     <td colspan="4">
                         <h2 style="text-align: center;">文件管理表</h2>
@@ -12,38 +12,38 @@
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">文件类型</td>
-                    <td><input type="text" 
+                    <td><input type="text" v-model="form.manType"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                     <td align="left" style="background-color:#F2F6FC;">文件所属部门</td>
-                    <td><input type="text" 
+                    <td><input type="text" v-model="form.mandocuments"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">文件名称</td>
-                    <td><input type="text" 
+                    <td><input type="text" v-model="form.mnName"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                     <td align="left" style="background-color:#F2F6FC;">归档日期</td>
-                    <td><input type="date" 
+                    <td><input type="date"  v-model="form.manDate"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">文件编号</td>
-                    <td><input type="text" 
+                    <td><input type="text"  v-model="form.mannumber"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                     <td align="left" style="background-color:#F2F6FC;">归档人</td>
-                    <td><input type="text" 
+                    <td><input type="text" v-model="form.manarchiver"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none"></td>
                 </tr>
                 <tr>
                     <td align="left" width="225" style="background-color:#F2F6FC;">内容</td>
                     <td colspan="3">
-                         <input type="text" 
+                         <input type="text"  v-model="form.mancontent"
                             style="background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
                     border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none">
                     </td>
@@ -51,7 +51,7 @@
                 <tr style="background-color:#F2F6FC;">
                     <td align="left" width="225">附件</td>
                     <td colspan="3">
-<input type="file" style="float: left; width: 70px;;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
+<input type="file" :model="form.manattachment" style="float: left; width: 70px;;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
 border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none" >
 
                 
@@ -77,7 +77,16 @@ border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: tra
     export default {
         data() {
             return {
-                application_date:new Date(),
+                form:{
+                    manType:"",
+                    mandocuments:'',
+                    mnName:'',
+                    manDate:'',
+                    mannumber:'',
+                    manarchiver:'',
+                    mancontent:'',
+                    manattachment:'',
+                },
             };
         },
         created() {
@@ -85,19 +94,19 @@ border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: tra
         },
         methods: {
             onclick() {
-                
+                this.$axios({
+                    url:"http://localhost:60618/api/ManagementAdd",
+                    method:"post",
+                    data: this.form
+                }).then((res) => {
+                    if (res.data !=null ) {
+                        this.$message("数据提交成功!");
+                    }
+                    else {
+                        this.$message("数据提交失败!");
+                    }
+                })
             },
-        },
-       mounted: function () {
-            var _this = this;
-            let yy = new Date().getFullYear();
-            let mm = new Date().getMonth() + 1;
-            let dd = new Date().getDate();
-            let hh = new Date().getHours();
-            let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
-            let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
-            _this.application_date = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
-            console.log(this.gettime)
         },
     }
 </script>
