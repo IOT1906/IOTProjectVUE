@@ -64,7 +64,7 @@
       </td>
       <td width="225">
         <input
-          type="date"
+          type="text"
           v-model="form.handdate"
           placeholder="选择日期"
           style="
@@ -108,14 +108,16 @@
         <input
           type="radio"
           v-model="form.handProve"
-          value="是" label="是"
+          value="是"
+          label="是"
           style="width: 20px; height: 20px"
           name="是"
         />是&emsp;&emsp;&emsp;&emsp;
         <input
           type="radio"
-          v-model="form.handProve" 
-           value="否" label="否"
+          v-model="form.handProve"
+          value="否"
+          label="否"
           style="width: 20px; height: 20px"
           name="否"
         />否
@@ -178,21 +180,24 @@
         <input
           type="checkbox"
           v-model="form.handDempContent"
-           value="工作交接" label="工作交接"
+          value="工作交接"
+          label="工作交接"
           style="width: 15px; height: 15px"
           name="工作交接"
         />工作交接&emsp;
         <input
           type="checkbox"
           v-model="form.handDempContent"
-           value="办公用品交接" label="办公用品交接"
+          value="办公用品交接"
+          label="办公用品交接"
           style="width: 15px; height: 15px"
           name="办公用品交接"
         />办公用品交接&emsp;
         <input
           type="checkbox"
           v-model="form.handDempContent"
-           value="其他" label="其他"
+          value="其他"
+          label="其他"
           style="width: 15px; height: 15px"
           name="其他"
         />其他&emsp;
@@ -234,21 +239,24 @@
         <input
           type="checkbox"
           v-model="form.handFinceContent"
-          value="取消财务报销系统账号与权限" label="取消财务报销系统账号与权限"
+          value="取消财务报销系统账号与权限"
+          label="取消财务报销系统账号与权限"
           style="width: 15px; height: 15px"
           name="取消财务报销系统账号与权限"
         />取消财务报销系统账号与权限&emsp;
         <input
           type="checkbox"
           v-model="form.handFinceContent"
-           value="金蝶财务系统(K3)" label="金蝶财务系统(K3)"
+          value="金蝶财务系统(K3)"
+          label="金蝶财务系统(K3)"
           style="width: 15px; height: 15px"
           name="金蝶财务系统(K3)"
         />金蝶财务系统(K3)&emsp;
         <input
           type="checkbox"
           v-model="form.handFinceContent"
-          value="查询欠款、借支、财务未清事项" label="查询欠款、借支、财务未清事项"
+          value="查询欠款、借支、财务未清事项"
+          label="查询欠款、借支、财务未清事项"
           style="width: 15px; height: 15px"
           name="查询欠款、借支、财务未清事项"
         />查询欠款、借支、财务未清事项&emsp;
@@ -290,7 +298,8 @@
         <input
           type="checkbox"
           v-model="form.handStativeContent"
-          value="返还钥匙、桌柜、电话、名片等" label="返还钥匙、桌柜、电话、名片等"
+          value="返还钥匙、桌柜、电话、名片等"
+          label="返还钥匙、桌柜、电话、名片等"
           style="width: 15px; height: 15px"
           name="返还钥匙、桌柜、电话、名片等"
         />返还钥匙、桌柜、电话、名片等&emsp;
@@ -298,34 +307,39 @@
           type="checkbox"
           v-model="form.handStativeContent"
           style="width: 15px; height: 15px"
-          value="退回职工工作牌、门禁卡" label="退回职工工作牌、门禁卡"
+          value="退回职工工作牌、门禁卡"
+          label="退回职工工作牌、门禁卡"
           name="退回职工工作牌、门禁卡"
         />退回职工工作牌、门禁卡&emsp;
         <input
           type="checkbox"
           v-model="form.handStativeContent"
-          value="手机话费结算" label="手机话费结算"
+          value="手机话费结算"
+          label="手机话费结算"
           style="width: 15px; height: 15px"
           name="手机话费结算"
         />手机话费结算&emsp;
         <input
           type="checkbox"
           v-model="form.handStativeContent"
-          value="档案、户口是否迁出" label="档案、户口是否迁出"
+          value="档案、户口是否迁出"
+          label="档案、户口是否迁出"
           style="width: 15px; height: 15px"
           name="档案、户口是否迁出"
         />档案、户口是否迁出&emsp;
         <input
           type="checkbox"
           v-model="form.handStativeContent"
-          value="固定资产清算(手提电脑结算以及其他固定资产结算)" label="固定资产清算(手提电脑结算以及其他固定资产结算)"
+          value="固定资产清算(手提电脑结算以及其他固定资产结算)"
+          label="固定资产清算(手提电脑结算以及其他固定资产结算)"
           style="width: 15px; height: 15px"
           name="固定资产清算(手提电脑结算以及其他固定资产结算)"
         />固定资产清算(手提电脑结算以及其他固定资产结算)&emsp;
         <input
           type="checkbox"
           v-model="form.handStativeContent"
-          value="各类图书资料" label="各类图书资料"
+          value="各类图书资料"
+          label="各类图书资料"
           style="width: 15px; height: 15px"
           name="各类图书资料"
         />各类图书资料&emsp;
@@ -406,9 +420,9 @@ export default {
   data() {
     return {
       form: {
-        handName: "",
-        handDemp: "",
-        handdate: "",
+        handName: window.localStorage["displayName"],
+        handDemp: "人事部",
+        handdate: new Date(),
         handpostion: "",
         handProve: "是",
         handImgurl: "",
@@ -431,25 +445,40 @@ export default {
       },
     };
   },
-  mounted() {
-    
+  mounted: function () {
+    var _this = this;
+    let yy = new Date().getFullYear();
+    let mm = new Date().getMonth() + 1;
+    let dd = new Date().getDate();
+    let hh = new Date().getHours();
+    let mf =
+      new Date().getMinutes() < 10
+        ? "0" + new Date().getMinutes()
+        : new Date().getMinutes();
+    let ss =
+      new Date().getSeconds() < 10
+        ? "0" + new Date().getSeconds()
+        : new Date().getSeconds();
+    _this.form.handdate =
+      yy + "-" + mm + "-" + dd + " " + hh + ":" + mf + ":" + ss;
+    console.log(this.gettime);
   },
   methods: {
-     Add() {
-      this.form.handDempContent=  this.form.handDempContent.toString();
-     this.form.handFinceContent= this.form.handFinceContent.toString();
-      this.form.handStativeContent= this.form.handStativeContent.toString();
-       
-      this.ljq.planDate=JSON.stringify(this.form)
+    Add() {
+      this.form.handDempContent = this.form.handDempContent.toString();
+      this.form.handFinceContent = this.form.handFinceContent.toString();
+      this.form.handStativeContent = this.form.handStativeContent.toString();
+
+      this.ljq.planDate = JSON.stringify(this.form);
       console.log(this.ljq.bpmUserPass);
-      this.ljq.bpmUserPass=this.ljq.bpmUserPass.trim();
+      this.ljq.bpmUserPass = this.ljq.bpmUserPass.trim();
       console.log(this.form);
       this.$axios({
         method: "post",
         url: "http://localhost:60618/api/StartHandOver",
         data: this.ljq,
       }).then((res) => {
-        if (res.data!=null) {
+        if (res.data != null) {
           alert("提交成功");
         } else {
           alert("提交失败");

@@ -182,9 +182,10 @@
                     december: "",
                     remarks: "",
                 },
+                sum:"",
                 forms: {
-                    tabulator: "",                      //获取制表人信息
-                    tabulation_Department: "",          //获取制表部门
+                    tabulator: window.localStorage["displayName"],                      //获取制表人信息
+                    tabulation_Department: "人事部",          //获取制表部门
                     tabulation_time: new Date(),       //获取当前时间
                     particular_year: new Date(),       //获取当前年份
                 },
@@ -201,6 +202,7 @@
         },
         created() {
             this.forms.particular_year = new Date().getFullYear().toString();
+            this.sum=this.formdate.january+this.formdate.february;
         },
         methods: {
            

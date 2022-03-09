@@ -99,10 +99,12 @@
         </tr>
 
         <tr style="height:70px;">
-            <td colspan="3">
+            <td colspan="2">
                 <button @click="this.$router.push('/connect')" style="color: dodgerblue;font-size: 28px;text-align:center;background-color:#FFFFFF;outline-color: invert;outline-style: none;outline-width: 0px;border: none;
-                    border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none;width:1500px">
+                    border-style: none;text-shadow: none;-webkit-appearance: none;outline-color: transparent;box-shadow: none;width:1000px">
                     固定资产交接申请流程</button></td>
+                    <td>
+                        </td>
         </tr>
     </table>
 </template>

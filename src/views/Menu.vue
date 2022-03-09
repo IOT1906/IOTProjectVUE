@@ -36,17 +36,12 @@
                 <el-menu-item index="1-2-3" @click="this.$router.push('/Interview')">员工离职面谈申请</el-menu-item>
                 <el-menu-item index="1-2-4" @click="this.$router.push('/Carapply')">用车申请</el-menu-item>
               </el-sub-menu>
-              <el-menu-item index="1-3">我处理的流程</el-menu-item>
-               <el-sub-menu index="1-4">
+              <el-sub-menu index="1-3">
+                  <template #title>我处理的流程</template>
+                 <el-menu-item index="1-3-1" @click="this.$router.push('/flow')">总流程处理</el-menu-item>
+             </el-sub-menu>
+                 <el-sub-menu index="1-4" @click="this.$router.push('/Choose')">
                 <template #title>所有流程</template>
-                <el-menu-item index="1-4-1" @click="this.$router.push('/Leave')">请假申请</el-menu-item>
-                <el-menu-item index="1-4-2" @click="this.$router.push('/Dimi')">离职审批</el-menu-item>
-                <el-menu-item index="1-4-3" @click="this.$router.push('/Year')">年度计划</el-menu-item>
-                <el-menu-item index="1-4-4" @click="this.$router.push('/Man')">人力资源需求申请</el-menu-item>
-                <el-menu-item index="1-4-5" @click="this.$router.push('/Entering')">员工录入申请</el-menu-item>
-                <el-menu-item index="1-4-6" @click="this.$router.push('/HandOver')">离职交接申请</el-menu-item>
-                <el-menu-item index="1-4-7" @click="this.$router.push('/Interview')">员工离职面谈申请</el-menu-item>
-                <el-menu-item index="1-4-8" @click="this.$router.push('/Carapply')">用车申请</el-menu-item>
               </el-sub-menu>
             </el-sub-menu>
             <el-sub-menu index="2">
@@ -56,7 +51,6 @@
               <el-menu-item index="2-1">菜单管理</el-menu-item>
               <el-menu-item index="2-2">菜单权限管理</el-menu-item>
             </el-sub-menu>
-
             <el-sub-menu index="3">
               <template #title>
                 <span>基础数据管理</span>
@@ -64,7 +58,6 @@
               <el-menu-item index="3-1">年假维护</el-menu-item>
               <el-menu-item index="3-2">请假维护</el-menu-item>
             </el-sub-menu>
-
             <el-sub-menu index="4">
               <template #title>
                 <span>文档管理</span>
