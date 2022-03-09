@@ -416,7 +416,6 @@
   </div>
 </template>
 <script>
-<<<<<<< HEAD
 export default {
   data() {
     return {
@@ -444,43 +443,6 @@ export default {
         processName: "离职交接流程",
         planDate: "",
       },
-=======
-    export default {
-        data() {
-            return {
-                form: {
-                    proposer:  window.localStorage["displayName"],
-                    applyDemo: "",
-                    applyTime: "",
-                    leaveType: "",
-                    startDate: "",
-                    endDate: "",
-                    day: "",
-                    leaveCause: "",
-                    leaveImg: "",
-                    leaveRemark: "",
-                },
-            };
-        },
-        mounted() {
-            this.Add();
-        },
-        methods: {
-            Add() {
-                this.$axios({
-                    method: "post",
-                    url: "http://localhost:60618/aopi/LeaveAdd",
-                    data: this.form,
-                }).then((res) => {
-                    if (res.data) {
-                        ("提交失败");
-                    } else {
-                        alert("提交成功");
-                    }
-                });
-            },
-        },
->>>>>>> 431fd9497f260bd4abb3b939ab887387f59e9510
     };
   },
   mounted: function () {

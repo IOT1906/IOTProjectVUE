@@ -45,19 +45,11 @@ export default {
                     bpmUserPass: window.localStorage["password"],
                     fullName: window.localStorage["fullName"],
                     processName: "",
-<<<<<<< HEAD
                     stepId: "",
                     comments: "",
                 },
                 forms:{
                     action: "拒绝",
-=======
-                    stepID: "",
-                    comments: "",
-                },
-                forms:{
-                    action: "驳回",
->>>>>>> 431fd9497f260bd4abb3b939ab887387f59e9510
                     bpmUser: window.localStorage["account"],
                     bpmUserPass: window.localStorage["password"],
                     fullName: window.localStorage["fullName"],
@@ -85,18 +77,12 @@ export default {
                 this.total=res.data.total;
             })
         },
-<<<<<<< HEAD
-        
+       
       handleEdit(row) {
         this.form.stepId=row.stepID;
         this.form.processName=row.processName;
         this.$axios.post("http://localhost:60618/api/StepatratDep",this.form).then((res) => {
-=======
-      handleEdit(row) {
-        this.form.stepID=row.stepID;
-        this.form.processName=row.processName;
-        this.$axios.post("http://localhost:60618/api/Startag",this.form).then((res) => {
->>>>>>> 431fd9497f260bd4abb3b939ab887387f59e9510
+
                     if (res.data !=null) {this.show();
                         alert("审批成功!");
                         this.show();
@@ -106,17 +92,10 @@ export default {
                     }
                 })
       },
-<<<<<<< HEAD
       handleDelete(row) {
         this.forms.taskId=row.taskID;
         this.forms.processName=row.processName;
         this.$axios.post("http://localhost:60618/api/TaskDep",this.forms).then((res) => {
-=======
-      handleDelete(index, row) {
-        this.forms.taskId=row.taskID;
-        this.forms.processName=row.processName;
-        this.$axios.post("http://localhost:60618/api/StartagNO",this.forms).then((res) => {
->>>>>>> 431fd9497f260bd4abb3b939ab887387f59e9510
                     if (res.data !=null) {
                         this.show();
                         this.$message("驳回成功!");this.show();
